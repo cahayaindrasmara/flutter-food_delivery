@@ -3,9 +3,10 @@ import 'package:food_delivery/widget/widget_support.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:food_delivery/widget/app_constant.dart';
+// import 'package:food_delivery/widget/app_constant.dart';
 import 'package:food_delivery/service/shared_pref.dart';
 import 'package:food_delivery/service/database.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Wallet extends StatefulWidget {
   const Wallet({super.key});
@@ -13,6 +14,8 @@ class Wallet extends StatefulWidget {
   @override
   State<Wallet> createState() => _WalletState();
 }
+
+final String secretKey = dotenv.env['STRIPE_SECRET_KEY'] ?? '';
 
 class _WalletState extends State<Wallet> {
   String? wallet, id;

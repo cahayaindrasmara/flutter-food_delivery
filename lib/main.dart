@@ -7,9 +7,12 @@ import 'package:food_delivery/pages/onboard.dart';
 import 'package:food_delivery/pages/signup.dart';
 import 'package:food_delivery/widget/app_constant.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+
   Stripe.publishableKey = publishableKey;
   await Stripe.instance.applySettings();
   await Firebase.initializeApp();
