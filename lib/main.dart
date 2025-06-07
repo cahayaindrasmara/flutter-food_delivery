@@ -5,9 +5,13 @@ import 'package:food_delivery/pages/home.dart';
 import 'package:food_delivery/pages/login.dart';
 import 'package:food_delivery/pages/onboard.dart';
 import 'package:food_delivery/pages/signup.dart';
+import 'package:food_delivery/widget/app_constant.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Stripe.publishableKey = publishableKey;
+  await Stripe.instance.applySettings();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
