@@ -348,6 +348,7 @@ class _WalletState extends State<Wallet> {
                     ),
                     child: TextField(
                       controller: amountcontroller,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Enter Amount',
